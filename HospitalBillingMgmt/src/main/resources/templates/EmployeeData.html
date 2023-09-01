@@ -1,0 +1,53 @@
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css"  />
+</head>
+<body>
+<div class="container">
+	<div class="card">
+		<div class="card-header bg-primary text-white text-center">
+			<h3>EMPLOYEE DATA PAGE</h3>
+		</div>
+		
+		<div class="card-body">
+			<a th:href="@{/employee/register}" class="btn btn-outline-info">ADD NEW?? <i class="fa fa-plus-square-o" aria-hidden="true"></i></a>
+			<table class="table">
+				<tr class="bg-info text-white">
+					<th>ID</th>
+					<th>NAME</th>
+					<th>SAL(<i class="fa fa-inr" aria-hidden="true"></i>)</th>
+					<th>DEPT</th>
+					<th>HRA(<i class="fa fa-inr" aria-hidden="true"></i>)</th>
+					<th>TA(<i class="fa fa-inr" aria-hidden="true"></i>)</th>
+					<th>OPERATIONS</th>
+				</tr>
+				<tr th:each="ob:${list}">
+					<td th:text="${ob.empId}"></td>
+					<td th:text="${ob.empName}"></td>
+					<td th:text="${ob.empSal}"></td>
+					<td th:text="${ob.empDept}"></td>
+					<td th:text="${ob.empHra}"></td>
+					<td th:text="${ob.empTa}"></td>
+					<td>
+			 			<a class="btn btn-danger" th:href="@{/employee/delete(id=${ob.empId})}">DELETE <i class="fa fa-trash-o" aria-hidden="true"></i></a> |
+			 			<a class="btn btn-warning" th:href="@{/employee/edit(id=${ob.empId})}">EDIT <i class="fa fa-pencil" aria-hidden="true"></i></a>   
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div class="card-footer bg-success text-white" th:if="${message!=null}">
+			<span th:text="${message}"></span>
+		</div>
+	
+	</div>
+
+
+
+</div>
+</body>
+</html>

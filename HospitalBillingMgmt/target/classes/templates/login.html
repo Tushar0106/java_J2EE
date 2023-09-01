@@ -1,0 +1,50 @@
+<html xmlns:th="https://www.thymeleaf.org/">
+
+<body>
+
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css" />
+
+	</head>
+	<form th:action="@{/employee/logincheck}" method="POST">
+
+
+		<div class="container">
+			<div class="card">
+				<div class="card-header bg-primary text-white text-center">
+					<h3>EMPLOYEE LOGIN PAGE</h3>
+				</div>
+				<div class="card-body">
+					<label for="userid"><b>Username</b></label>
+					<input type="text" placeholder="Enter Username" name="userid" class="form-control" required> <br>
+					<br>
+
+					<label for="password"><b>Password</b></label>
+					<input type="password" placeholder="Enter Password" name="password" class="form-control" required>
+					<br>
+					<br>
+
+					<label>
+						<input type="checkbox" checked="checked" name="remember"> Remember me
+					</label> <br>
+					<br>
+					<button type="submit" class="btn btn-success">Login<i class="fa" aria-hidden="true"></i>
+					</button>
+					<br>
+	</form>
+	</div>
+
+	<div class="card-footer bg-info text-white" th:if="${message!=null}">
+		<span th:text="${message}"></span>
+	</div>
+	</div>
+	</div>
+
+
+</body>
+
+</html>

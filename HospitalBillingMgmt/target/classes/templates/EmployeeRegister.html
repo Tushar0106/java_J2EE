@@ -1,0 +1,49 @@
+<html xmlns:th="https://www.thymeleaf.org/">
+
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css" />
+
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="card">
+
+			<div class="card-header bg-primary text-white text-center">
+				<h3>EMPLOYEE REGISTER PAGE</h3>
+			</div>
+			<div class="card-body">
+				<form th:action="@{/employee/save}" method="POST">
+					NAME : <input type="text" name="empName" id="empName" class="form-control" required />
+					SAL : <input type="number" name="empSal" id="empSal" class="form-control" required />
+					DEPT : <select name="empDept" id="empDept" class="form-control">
+						<option value="">--SELECT--</option>
+						<option value="DEV">DEV</option>
+						<option value="QA">QA</option>
+						<option value="BA">BA</option>
+					</select>
+					<br />
+					<button type="submit" class="btn btn-success">ADD EMPLOYEE <i class="fa fa-plus-square"
+							aria-hidden="true"></i> </button>
+					<a th:href="@{/employee/all}" class="btn btn-outline-info">View All <i class="fa fa-table"
+							aria-hidden="true"></i></a>
+					<a th:href="@{/employee/logout}" class="btn btn-outline-info">Logout <i class="fa"
+							aria-hidden="true"></i></a>
+				</form>
+			</div>
+
+			<div class="card-footer bg-info text-white" th:if="${message!=null}">
+				<span th:text="${message}"></span>
+			</div>
+
+		</div>
+
+	</div>
+</body>
+
+</html>
